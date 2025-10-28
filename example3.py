@@ -5,4 +5,4 @@ def type_writer(text, delay=0.02):
         time.sleep(delay/100)
     print()
 
-type_writer("hello this is coding", 2)
+type_writer("hello this is working", 2)
