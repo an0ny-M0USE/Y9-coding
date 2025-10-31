@@ -3,19 +3,19 @@ import random
 def ask_question():
     questions = [ #dictionary for questions
         {
-            "question": "What is the capital of France?",
-            "options": ["London", "Paris", "Berlin", "Madrid"],
-            "correct": "B"
+            "question": "Where are books made?",
+            "options": ["Printer", "Library", "Book factory", "A book publisher"],
+            "correct": "A"
         },
         {
-            "question": "What is 8 x 7?",
-            "options": ["54", "56", "58", "60"],
-            "correct": "B"
-        },
-        {
-            "question": "Which planet is closest to the Sun?",
-            "options": ["Venus", "Mars", "Mercury", "Earth"],
+            "question": "What is one material used to make books?",
+            "options": ["Metal", "Plastic", "Glue", "Printer"],
             "correct": "C"
+        },
+        {
+            "question": "What is the first step to make a book?",
+            "options": ["Gather materials", "Ship the book", "Timmy", "Order a book"],
+            "correct": "A"
         }
     ]
     
@@ -47,13 +47,13 @@ def double_or_nothing(): #double or nothing random chance
     
     bonus_questions = [ #double or nothing question dictionary
         {
-            "question": "What is the square root of 144?",
-            "options": ["10", "12", "14", "16"],
+            "question": "Which stage of the book lifecycle contributes MOST to deforestation?",
+            "options": ["Writing", "Production", "Shipping", "Throwing away"],
             "correct": "B"
         },
         {
-            "question": "Which year did World War II end?",
-            "options": ["1943", "1944", "1945", "1946"],
+            "question": "What is the CORRECT order of the book lifecycle?",
+            "options": ["Raw Material Extraction, Paper Production, Printing & Manufacturing, Marketing & Sales, Distribution & Transportation, Use Phase, End of Life", "Raw Material Extraction, Ink Production, Paper Production, Printing & Manufacturing, Packaging, Distribution & Transportation, Use Phase, End of Life", "Raw Material Extraction, Paper Production, Printing & Manufacturing, Packaging, Distribution & Transportation, Use Phase, End of Life", "Raw Material Extraction, Paper Production, Quality Control & Editing, Printing & Manufacturing, Packaging, Distribution & Transportation, Use Phase, End of Life"],
             "correct": "C"
         }
     ]
