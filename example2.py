@@ -1,7 +1,7 @@
 import random
 
 def ask_question():
-    questions = [
+    questions = [ #dictionary for questions
         {
             "question": "What is the capital of France?",
             "options": ["London", "Paris", "Berlin", "Madrid"],
@@ -24,7 +24,7 @@ def ask_question():
     print("\n" + question["question"])
     
     # displays options
-    print("A.", question["options"][0])
+    print("A.", question["options"][0]) #options for corresponding question from dicitionary
     print("B.", question["options"][1]) 
     print("C.", question["options"][2])
     print("D.", question["options"][3])
@@ -40,12 +40,12 @@ def ask_question():
         print(f"Wrong! The correct answer was {question['correct']}.")
         return 0
 
-def double_or_nothing():
+def double_or_nothing(): #double or nothing random chance
     print("\nDOUBLE OR NOTHING CHALLENGE!")
     print("Get it right: +2000 points")
     print("Get it wrong: -2000 points")
     
-    bonus_questions = [
+    bonus_questions = [ #double or nothing question dictionary
         {
             "question": "What is the square root of 144?",
             "options": ["10", "12", "14", "16"],
@@ -58,10 +58,10 @@ def double_or_nothing():
         }
     ]
     
-    question = random.choice(bonus_questions)
+    question = random.choice(bonus_questions) #random question from dictionary
     print("\n" + question["question"])
     
-    print("1.", question["options"][0])
+    print("1.", question["options"][0]) #display options for bonus questions
     print("2.", question["options"][1])
     print("3.", question["options"][2])
     print("4.", question["options"][3])
@@ -70,15 +70,15 @@ def double_or_nothing():
     
     if user_answer == question["correct"]:
         print("AMAZING! You won 2000 points!")
-        return 2000
+        return 2000 #+2000 points
     else:
         print(f"Wrong! The correct answer was {question['correct']}.")
         print("You lost 2000 points!")
-        return -2000
+        return -2000 #-2000 points
 
-def main():
-    score = 0
-    while True:
+def main(): #main loop def
+    score = 0 #score starts at 0
+    while True: #main game loop
         # normal question
         score += ask_question()
         print(f"Current score: {score}")
@@ -86,7 +86,7 @@ def main():
         # 10% chance of double or nothing
         if random.random() < 0.1:
             print("\nA special challenge has appeared!")
-            score += double_or_nothing()
+            score += double_or_nothing() #score is score plus or minus from double or nothing
             print(f"Score after challenge: {score}")
         
         play_again = input("\nPlay another question? (y/n): ").lower()
@@ -95,4 +95,4 @@ def main():
     
     print(f"\nGame Over! Final score: {score}")
 
-main()
+main() #runs main function to start game
