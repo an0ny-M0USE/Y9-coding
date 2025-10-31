@@ -48,7 +48,7 @@ def double_or_nothing(): #double or nothing random chance
     bonus_questions = [ #double or nothing question dictionary
         {
             "question": "Which stage of the book lifecycle contributes MOST to deforestation?",
-            "options": ["Writing", "Production", "Shipping", "Throwing away"],
+            "options": ["Writing", "Production", "Shipping", "Disposal"],
             "correct": "B"
         },
         {
