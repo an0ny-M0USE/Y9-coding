@@ -22,15 +22,43 @@ def questionss(): #defines dictionary for questions
             "question": "What is the first step to make a book?",
             "options": ["Gather materials", "Ship the book", "Timmy", "Order a book"],
             "correct": "A"
-        }
+        },
         {
             "question": "What is the primary raw material used in making paper for books?",
             "options": ["Cotton", "Wood pulp", "Recycled plastic", "Bamboo"],
             "correct": "B"
-        }
+        },
         {
-
-        }
+            "question": "Which process is commonly used to bind the pages of a book together?",
+            "options": ["Sewing", "Gluing", "Stapling", "Wiring"],
+            "correct": "B"
+        },
+        {
+            "question": "What environmental concern is associated with traditional paper production?",
+            "options": ["Air pollution", "Water consumption", "Deforestation", "All of the above"],
+            "correct": "D"
+        },
+        {
+            "question": "Which of the following is a sustainable alternative for book production?",
+            "options": ["Using recycled paper", "Using plastic covers", "Using synthetic ink", "Using non-renewable resources"],
+            "correct": "A"
+        },
+        {
+            "question": "What is the role of ink in book production?",
+            "options": ["To bind pages", "To print text and images", "To protect the cover", "To add weight to the book"],
+            "correct": "B"
+        },
+        {
+            "question": "Which stage of a paper book's life cycle typically uses the most water?",
+            "options": ["Tree harvesting", "Pulp and paper production", "Printing and binding", "Recycling"],
+            "correct": "B"
+        },
+        {
+            "question": "What is one way to reduce the environmental impact of book production?",
+            "options": ["Using more plastic", "Increasing paper thickness", "Choosing eco-friendly materials", "Printing more copies"],
+            "correct": "C"
+        },
+    
     ]
     
     # chooses random question
@@ -75,11 +103,21 @@ def double_or_nothing(): #double or nothing random chance for display
             "question": "What is the CORRECT order of the book lifecycle?",
             "options": ["Raw Material Extraction, Paper Production, Printing & Manufacturing, Marketing & Sales, Distribution & Transportation, Use Phase, End of Life", "Raw Material Extraction, Ink Production, Paper Production, Printing & Manufacturing, Packaging, Distribution & Transportation, Use Phase, End of Life", "Raw Material Extraction, Paper Production, Printing & Manufacturing, Packaging, Distribution & Transportation, Use Phase, End of Life", "Raw Material Extraction, Paper Production, Quality Control & Editing, Printing & Manufacturing, Packaging, Distribution & Transportation, Use Phase, End of Life"],
             "correct": "C"
-        }
+        },
         {
             "question": "Which chemical process is commonly used to break down wood chips into pulp for papermaking?",
             "options": ["Oxidation", "Kraft process", "Fermentation", "Electrolysis"],
             "correct": "B"
+        },
+        {
+            "question": "What percentage of the original wood mass is typically lost during the chemical pulping process due to lignin removal?",
+            "options": ["10-20%", "30-40%", "50-60%", "70-80%"],
+            "correct": "C"
+        },
+        {
+            "question": "Which of the following is NOT a common method for recycling paper?",
+            "options": ["De-inking", "Hydraulic pressing", "Thermal pulping", "Magnetic separation"],
+            "correct": "D"
         }
     ]
     
