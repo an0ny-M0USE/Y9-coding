@@ -19,23 +19,8 @@ RED_BG = '\033[41m'
 def tw(text): #typewriter effect defined
     for character in text:
         print(character, end='', flush=True)
-        time.sleep(0.02) #speed of typewriting
+        time.sleep(0.018) #speed of typewriting
     print()
- 
-def end():
-    tw(f"{BOLD}{BLUE}Congratulations! You have successfully delivered your cargo of books!{RESET}")
-    tw("You now know how about the full life cycle of a book and the enviornmental impact of it.")
-    tw("If you tried multiple choice mode, try doing short answer mode for a harder difficulty!")
-    tw(f"{BOLD}Your final cargo: {cargo}{RESET}\n")
-
-    tw("Would you like to play again? (y/n)")
-    end1 = input()
-
-    if end1 == 'y':
-        menu()
-    else:
-      tw(f"{BLUE_BG}Thank you for playing BookTruck! Goodbye!{RESET}")
-      exit()
 
 def questionss(): 
 
@@ -123,7 +108,6 @@ def questionss():
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
             tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
             exit()
-
               
 def double_multi():
     for i in range(4):
@@ -192,15 +176,18 @@ def double_multi():
         return -2000 #-2000 points
 
 def multi():
+    global score #i'm adding global to this so that in the menu() function there won't be an error when called on in the menu() function
     score = 0
-    for i in range (10): #main game loop
+    for i in range (1): #main game loop
         #normal question
         questionss()
-        tw(f"\n{BOLD}Current cargo: {RESET}")
+        tw(f"\n{BOLD}Current cargo: {cargo}")
+        tw(f"Current score {score}{RESET}")
+
         print(*cargo, sep=", ")      
 
-        # 10% chance of double or nothing special quesrtion
-        if random.random() < 0.1:
+        # 15% chance of double or nothing special question
+        if random.random() < 0.15:
             tw("\nA special challenge has appeared!")
             time.sleep(0.5)
             score += double_multi() #score is score plus or minus from double or nothing
@@ -347,13 +334,15 @@ def double_short():
         return -2000 #-2000 points
 
 def short():
+    global score
     score = 0
-    while True: #main game loop
+    for i in range(1): #main game loop
         shortquestions()
-        tw(f"Current score: {score}")
+        tw(f"C{BOLD}urrent cargo {cargo}")
+        tw(f"Current score: {score}{RESET}")
         
-        # 10% chance of double or nothing
-        if random.random() < 0.1:
+        # 15% chance of double or nothing
+        if random.random() < 0.15:
             tw("\nA special challenge has appeared!")
             time.sleep(0.5)
             score += double_short() #score is score plus or minus from double or nothing
@@ -369,6 +358,28 @@ def short():
             exit() #ends program
         else:
             tw(f"{RED}Invalid input. Try again{RESET}")
+    end()
+    
+def end(): 
+    global score
+    time.sleep(0.5)
+    tw(f"{BOLD}{BLUE}Congratulations! You have successfully delivered your cargo of books!{RESET}")
+    time.sleep(0.5)
+    tw("You now know how about the full life cycle of a book and the enviornmental impact of it.")
+    time.sleep(0.5)
+    tw("If you tried multiple choice mode, try doing short answer mode for a harder difficulty!")
+    time.sleep(0.5)
+    tw(f"{BOLD}Your final cargo: {cargo}\n")
+    tw(f"Your final score: {score}{RESET}\n")
+
+    tw("Would you like to play again? (y/n): ")
+    end1 = input()
+
+    if end1 == 'y':
+        menu()
+    else:
+        tw(f"{BLUE_BG}Thank you for playing BookTruck! Goodbye!{RESET}")
+        exit()  
     
 def menu():
     print(logo)
@@ -378,18 +389,19 @@ def menu():
         choice = input("")
         if choice == '1':
             
-            tw(f"\nWhich difficulty would you like to play on?\n1. Multiple Choice (easy) \n2. Short Answer (hard)\n{UNDERLINE}Enter here (1/2):{RESET}")
-            choice2 = input("")
-            if choice2 == '1':
-                tw("You chose mulitple choice difficulty!")
-                multi() #starts multiple function
-            
-            elif choice2 == '2':
-                tw("You chose short answer difficulty!")
-                short()
+            while True:
+                tw(f"\nWhich difficulty would you like to play on?\n1. Multiple Choice (easy) \n2. Short Answer (hard)\n{UNDERLINE}Enter here (1/2):{RESET}")
+                choice2 = input("")
+                if choice2 == '1':
+                    tw("You chose mulitple choice difficulty!")
+                    multi() #starts multiple function
+                
+                elif choice2 == '2':
+                    tw("You chose short answer difficulty!")
+                    short()
 
-            else:
-                tw("Invalid choice. Please try again.")
+                else:
+                    tw("Invalid choice. Please try again.")
             
         elif choice == '2':
             tutorial = f"""\n📚 BookTruck - How to Play
@@ -435,8 +447,8 @@ Good luck, driver! 🚚📖
             tw("Thank you for playing BookTruck! Goodbye!")
             exit()
 
-#-----------------------DELETE ELIF CHOICE == 4-----------------------------------------------------------------------------------------
-        elif choice == '4': #MAKE SURE TO DELETE THIS AT THE END OF PROJECT
+        #secret option to immediently acess multiple choice or short answer questions
+        elif choice == '4': 
             multi()
         elif choice == '5':
             short()
@@ -444,7 +456,7 @@ Good luck, driver! 🚚📖
             tw("Invalid choice. Please try again.")
         
 tw(f"{BOLD}Welcome to BookTruck!!{RESET}")
-time.sleep(0.7)
+time.sleep(0.4)
 logo = """
    ___            __  ______             __  
   / _ )___  ___  / /_/_  __/_____ ______/ /__
@@ -484,6 +496,5 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 """
-
 time.sleep(0.8)
 menu() #runs menu function to start program
