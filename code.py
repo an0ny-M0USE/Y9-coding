@@ -383,13 +383,13 @@ def end():
     
 def menu():
     print(logo)
-    while True:
+    while True: #infinite loop so that if the user gives incorrect option it loops back to the question
         tw(f"\n{BOLD}Menu:{RESET}\n1. Begin Game\n2. Tutorial\n3. Exit")
         tw(f"{UNDERLINE}Please enter your choice (1/2/3):{RESET}")
         choice = input("")
         if choice == '1':
             
-            while True:
+            while True: #same logic as the first while True, if the user gives invalid choice it loops back to this question
                 tw(f"\nWhich difficulty would you like to play on?\n1. Multiple Choice (easy) \n2. Short Answer (hard)\n{UNDERLINE}Enter here (1/2):{RESET}")
                 choice2 = input("")
                 if choice2 == '1':
