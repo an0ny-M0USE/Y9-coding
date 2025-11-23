@@ -178,7 +178,7 @@ def double_multi():
 def multi():
     global score #i'm adding global to this so that in the menu() function there won't be an error when called on in the menu() function
     score = 0
-    for i in range (1): #main game loop
+    for i in range (10): #main game loop
         #normal question
         questionss()
         tw(f"\n{BOLD}Current cargo: {cargo}")
@@ -336,7 +336,7 @@ def double_short():
 def short():
     global score
     score = 0
-    for i in range(1): #main game loop
+    for i in range(10): #main game loop
         shortquestions()
         tw(f"C{BOLD}urrent cargo {cargo}")
         tw(f"Current score: {score}{RESET}")
