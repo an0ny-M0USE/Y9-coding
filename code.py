@@ -24,7 +24,7 @@ def tw(text): #typewriter effect defined
     print()
 
 def dialogue():
-    dialoguee = {
+    dialoguee = { #dialogue options
             'You continue driving down the road.': 1,
             'You pass a bright blue car on the opposite direction.': 2,
             'You merge onto the highway, passing a sign, "Next rest stop is in 5 kilometres".': 3,
@@ -66,7 +66,7 @@ def dialogue():
         tw(f"{GREEN}Dispatcher: Copy.{RESET}")
         time.sleep(0.5)
     
-    scary = {
+    scary = { #before displaying question, this happens to transition between dialogue and questions
         'You glance in the rearview mirror, a book roober appears!': 1,
         'A loud bang is heard in your truck, you realize there is a book roober behind you!': 2,
         'A book roober is beside your truck!': 3,
@@ -469,7 +469,7 @@ def menu():
                     short()
 
                 else:
-                    tw("Invalid choice. Please try again.")
+                    tw(f"{RED}Invalid choice. Please try again.{RESET}")
             
         elif choice == '2':
             tutorial = f"""\n📚 BookTruck - How to Play
@@ -515,13 +515,13 @@ Good luck, driver! 🚚📖
             tw("Thank you for playing BookTruck! Goodbye!")
             exit()
 
-        #secret option to immediently acess multiple choice or short answer questions
+        #secret option to immediently acess multiple choice or short answer questions if the user wants to skip to either question
         elif choice == '4': 
             multi()
         elif choice == '5':
             short()
         else:
-            tw("Invalid choice. Please try again.")
+            tw(f"{RED}Invalid choice. Please try again.{RESET}")
         
 tw(f"{BOLD}Welcome to BookTruck!!{RESET}")
 time.sleep(0.4)
