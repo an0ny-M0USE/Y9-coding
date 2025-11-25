@@ -2,9 +2,10 @@ import random, time #imports random and time
 
 cargo = ["ink", "thread", "paper", "paper", "glue"]
 
-#these are easy ways to add colour and different styles to the text displayed so when I add something like {BLUE} it will change the colour to blue in a printout
+#these are easy ways to add colour and different styles to the text displayed so when I add something like f("{BLUE}hello")" it will change the colour to blue in a printout
 UNDERLINE = '\033[4m' 
 BOLD = '\033[1m'
+ITALIC = '\x1B[3m'
 
 RESET = '\033[0m' #resets text to normal
 
@@ -21,6 +22,61 @@ def tw(text): #typewriter effect defined
         print(character, end='', flush=True)
         time.sleep(0.018) #speed of typewriting
     print()
+
+def dialogue():
+    dialoguee = {
+            'You continue driving down the road.': 1,
+            'You pass a bright blue car on the opposite direction.': 2,
+            'You merge onto the highway, passing a sign, "Next rest stop is in 5 kilometres".': 3,
+            'You adjust your mirror and notice storm clouds gathering ahead.': 4,
+            'You pass a recycling plant, mountains of cardboard and paper visible through the fence.': 5,
+
+        }
+    random_pair = random.choice(list(dialoguee.items())) #chooses random dialogue option from list
+    key, value = random_pair
+    tw(f"{ITALIC}{key}{RESET}")
+    time.sleep(1)
+
+    randomChoice = random.randint(1,3) #after random dialogue it chooses random dialogue with pauses in text
+    if randomChoice == 1:
+        tw(f"{ITALIC}The CB radio crackles to life:")
+        time.sleep(0.5)
+        tw(f"{GREEN}Dispatcher: Unit 47, whats your 20?")
+        time.sleep(1)
+        tw(f"{BLUE}You: Just passed mile marker 182 on I-90. Should hit the warehouse by 1400 hours.")
+        time.sleep(1)
+        tw(f"{GREEN}Dispatcher: Copy.{RESET}")
+        time.sleep(0.7)
+
+    elif randomChoice == 2:
+        tw(f"{ITALIC}You glance at your fuel gauge—half a tank.")
+        time.sleep(0.5)
+        tw("You calculate the emissions in your head:")
+        time.sleep(0.7)
+        tw(f"Roughly 6 kilometers per gallon, 300 kilometers to go.{RESET}")
+        time.sleep(1)
+
+    elif randomChoice == 3:
+        tw(f"{ITALIC}The CB radio crackles again.")
+        time.sleep(0.6)
+        tw(f"{GREEN}Dispatcher: Unit 47, be advised—theres a weigh station ahead at mile 205.")
+        time.sleep(1)
+        tw(f"{BLUE}You: Copy. I'm legal, but it'll cost me twenty minutes.")
+        time.sleep(1)
+        tw(f"{GREEN}Dispatcher: Copy.{RESET}")
+        time.sleep(0.5)
+    
+    scary = {
+        'You glance in the rearview mirror, a book roober appears!': 1,
+        'A loud bang is heard in your truck, you realize there is a book roober behind you!': 2,
+        'A book roober is beside your truck!': 3,
+        'There is a book roober behind you!': 4,
+
+    }
+    random_pair = random.choice(list(scary.items())) #chooses random dialogue option from list
+    key, value = random_pair
+    tw(f"\n{ITALIC}{BOLD}{RED}{key}{RESET}")
+    time.sleep(2)
 
 def questionss(): 
 
@@ -103,7 +159,7 @@ def questionss():
     else:
         print(f"{RED}Incorrect! The correct answer was {question['correct']}{RESET}.")
         removed = cargo.pop(random.randint(0,len(cargo)-1))
-        print(f"{RED_BG}You lost a {removed} box!{RESET}")
+        print(f"{RED_BG}A robber stole one a {removed} box!{RESET}")
               
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
             tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
@@ -180,6 +236,7 @@ def multi():
     score = 0
     for i in range (10): #main game loop
         #normal question
+        dialogue()
         questionss()
         tw(f"\n{BOLD}Current cargo: {cargo}")
         tw(f"Current score {score}{RESET}")
@@ -188,6 +245,7 @@ def multi():
 
         # 15% chance of double or nothing special question
         if random.random() < 0.15:
+            dialogue()
             tw("\nA special challenge has appeared!")
             time.sleep(0.5)
             score += double_multi() #score is score plus or minus from double or nothing
@@ -246,11 +304,11 @@ def shortquestions():
         },
         {
             "question": "Which of the following is a sustainable alternative for book production?",
-            "answers": ["Using recycled paper", "Recycling"],
+            "answers": ["Using recycled paper", "Recycling", "recycle"],
         },
         {
             "question": "What is the role of ink in book production?",
-            "answers": ["To print text and images", "Printing", "To print"],
+            "answers": ["To print text and images", "Printing", "To print", "print", "text"],
         },
         {
             "question": "Which stage of a paper book's life cycle typically uses the most water?",
@@ -258,12 +316,12 @@ def shortquestions():
         },
         {
             "question": "What is one way to reduce the environmental impact of book production?",
-            "answers": ["Choosing eco-friendly materials", "Recycle"],
+            "answers": ["Choosing eco-friendly materials", "Recycle", "recycling", "share books", "donate"],
         },
     ]
     # chooses random question
     question = random.choice(questionsss)
-    tw("\n" + question["question"]) #shows question from dictionary, tw is to call typewriter effect for this line
+    tw(f"{UNDERLINE}\n" + question["question"] + f"{RESET}") #shows question from dictionary, tw is to call typewriter effect for this line
     user_answer = input("").lower().strip() #.strip() makes it so that even if there is a space in the user's answer the program removes it
 
     if user_answer in [ans.lower() for ans in question['answers']]: #I used StackOverflow for this part to check if one of the answers is right from the valid answers dictionary 
@@ -271,7 +329,7 @@ def shortquestions():
     else:
         print(f"{RED}Incorrect! The correct answers were either one of these: {question['answers']}{RESET}.")
         removed = cargo.pop(random.randint(0,len(cargo)-1))
-        print(f"{RED_BG}You lost a {removed} box!{RESET}")
+        print(f"{RED_BG}Oh no! A robber stole a {removed} box from your truck!{RESET}")
             
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
             tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
@@ -301,7 +359,7 @@ def double_short():
         },
         {
             "question": "What should you do after finishing reading a book?",
-            "answers": ["Recycle it", "recycling", "Donate it", "donating", "donation", "give it to a friend", "give it away", "donate it to a library", "give it to a drive"]
+            "answers": ["Recycle it", "recycling", "Donate it", "donating", "donation", "give it to a friend", "give it away", "donate it to a library", "give it to a drive", "donate"]
         },
         {
             "question": "What gas is released when trees are cut down for paper?",
@@ -309,11 +367,11 @@ def double_short():
         },
         {
             "question": "What type of pollution results from transporting books?",
-            "answers": ["Greenhouse gases", "Greenhouse gases"],
+            "answers": ["Greenhouse gases", "Green house gases", "GHGs"],
         },
         {
             "question": "What process gives old books life?",
-            "answers": ["Recycling"],
+            "answers": ["Recycling", "recycle", "book bank", "donating", "donations"],
         },
         {
             "question": "Where do unwanted books often end?",
@@ -322,7 +380,7 @@ def double_short():
         ]
 
     question = random.choice(double_shortt)
-    tw("\n" + question["question"]) #shows question from dictionary, tw is to call typewriter effect for this line
+    tw(f"{UNDERLINE}\n" + question["question"] + f"{RESET}") #shows question from dictionary, tw is to call typewriter effect for this line
     user_answer = input("").lower().strip() #.strip() makes it so that even if there is a space in the user's answer the program removes it
 
     if user_answer in [ans.lower() for ans in question['answers']]: #I used StackOverflow for this part to check if one of the answers is right from the valid answers dictionary 
@@ -336,13 +394,15 @@ def double_short():
 def short():
     global score
     score = 0
-    for i in range(10): #main game loop
+    for i in range(10): #main game loop with 10 questions
+        dialogue()
         shortquestions()
-        tw(f"C{BOLD}urrent cargo {cargo}")
+        tw(f"{BOLD}Current cargo {cargo}")
         tw(f"Current score: {score}{RESET}")
         
         # 15% chance of double or nothing
         if random.random() < 0.15:
+            dialogue()
             tw("\nA special challenge has appeared!")
             time.sleep(0.5)
             score += double_short() #score is score plus or minus from double or nothing
@@ -394,10 +454,18 @@ def menu():
                 choice2 = input("")
                 if choice2 == '1':
                     tw("You chose mulitple choice difficulty!")
+                    time.sleep(0.5)
+                    tw(f"{ITALIC}\nYou enter your truck, ready to start your long day ahead.")
+                    time.sleep(0.5)
+                    tw(f"You merge onto the road.{RESET}")
                     multi() #starts multiple function
                 
                 elif choice2 == '2':
                     tw("You chose short answer difficulty!")
+                    time.sleep(0.5)
+                    tw(f"{ITALIC}\nYou enter your truck, ready to start your long day ahead.")
+                    time.sleep(0.5)
+                    tw(f"You merge onto the road.{RESET}")
                     short()
 
                 else:
