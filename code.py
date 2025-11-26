@@ -468,7 +468,7 @@ def menu():
                     time.sleep(0.5)
                     tw(f"{ITALIC}\nYou enter your truck, ready to start your long day ahead.")
                     time.sleep(0.5)
-                    tw(f"You merge onto the road.{RESET}")
+                    tw(f"You merge onto the road.")
                     time.sleep(1.3)
                     tw(f"Time passes by.{RESET}")
                     time.sleep(1.3)
