@@ -159,7 +159,7 @@ def questionss():
     else:
         print(f"{RED}Incorrect! The correct answer was {question['correct']}{RESET}.")
         removed = cargo.pop(random.randint(0,len(cargo)-1))
-        print(f"{RED_BG}A robber stole one a {removed} box!{RESET}")
+        print(f"{RED_BG}A robber stole a {removed} box!{RESET}")
               
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
             tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
