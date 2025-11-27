@@ -71,7 +71,7 @@ def dialogue():
         'A loud bang is heard in your truck, you realize there is a book roober behind you!': 2,
         'As you look back to change lanes, you realize a book roober is beside your truck!': 3,
         'GEE  WILIKERS !!!! There is a book roober behind you!': 4,
-        'You adjust your mirror, but something is wrong.\nThere is a book roober behind your truck!': 5,
+        'You adjust your mirror, but something is wrong...\nThere is a book roober behind your truck!': 5,
 
     }
     random_pair = random.choice(list(scary.items())) #chooses random dialogue option from list
