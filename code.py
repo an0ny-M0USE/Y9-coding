@@ -6,13 +6,11 @@ cargo = ["ink", "thread", "paper", "paper", "glue"]
 UNDERLINE = '\033[4m' 
 BOLD = '\033[1m'
 ITALIC = '\x1B[3m'
-
 RESET = '\033[0m' #resets text to normal
-
 RED = '\033[31m'
 BLUE = '\033[34m'
 GREEN = '\033[32m'
-BLACK = '\033[30m'
+YELLOW = '\033[33m'
 RED_BG = '\033[41m'
 BLUE_BG = '\033[44m'
 RED_BG = '\033[41m'
@@ -20,59 +18,79 @@ RED_BG = '\033[41m'
 def tw(text): #typewriter effect defined
     for character in text:
         print(character, end='', flush=True)
-        time.sleep(0.018) #speed of typewriting
+        time.sleep(0.017) #speed of typewriting
     print()
 
 def dialogue():
     dialoguee = { #dialogue options
             'You continue driving down the road.': 1,
-            'You pass a bright blue car on the opposite direction.': 2,
+            'A bright blue car passes you going  the opposite direction.': 2,
             'You merge onto the highway, passing a sign, "Next rest stop is in 5 kilometres".': 3,
             'You adjust your mirror and notice storm clouds gathering ahead.': 4,
             'You pass a recycling plant, mountains of cardboard and paper visible through the fence.': 5,
-
+            'You see the warehouse exit sign: 87 miles to go.': 6,
+            'The rain intensifies. The windshield wipers struggle to keep up.': 7,
+            'You pass a billboard: "Save Paper, Save Trees - Go Digital Today!"': 8,
+            'An hour passes. The rain eases. You pull into a truck stop for fuel.': 9,
+            'A bookstore approaches you. A "Going Out of Business" sign hangs in the window.': 10,
+            'You pass a landfill. Seagulls circle overhead.': 11,
+            'You think about the 540 trees in yesterdays load. The 112 tons of CO2. The 50 gallons of diesel you burned.': 12,
+            'The mile marker climbs up: 220. 230. 240.': 13,
+            'The sun climbs higher. The road continues.': 14,
         }
     random_pair = random.choice(list(dialoguee.items())) #chooses random dialogue option from list
     key, value = random_pair #the key is the writing part and the value is the number, this is so that it doesn't print entire dictionary line
     tw(f"{ITALIC}{key}{RESET}")
     time.sleep(1)
 
-    randomChoice = random.randint(1,3) #after random dialogue it chooses random dialogue with pauses in text
+    randomChoice = random.randint(1,4) #after random dialogue it chooses random dialogue with pauses in text
     if randomChoice == 1:
         tw(f"{ITALIC}The CB radio crackles to life:")
-        time.sleep(0.5)
+        time.sleep(1)
         tw(f"{GREEN}Dispatcher: Unit 47, whats your 20?")
-        time.sleep(1)
+        time.sleep(1.5)
         tw(f"{BLUE}You: Just passed mile marker 182 on I-90. Should hit the warehouse by 1400 hours.")
-        time.sleep(1)
+        time.sleep(1.8)
         tw(f"{GREEN}Dispatcher: Copy.{RESET}")
         time.sleep(0.7)
-
     elif randomChoice == 2:
         tw(f"{ITALIC}You glance at your fuel gauge—half a tank.")
-        time.sleep(0.5)
-        tw("You calculate the emissions in your head:")
-        time.sleep(0.7)
-        tw(f"'Roughly 6 kilometers per gallon, 300 kilometers to go.'{RESET}")
         time.sleep(1)
-
+        tw("You calculate the emissions in your head:")
+        time.sleep(1.8)
+        tw(f"'Roughly 6 kilometers per gallon, 300 kilometers to go.'{RESET}")
+        time.sleep(1.4)
     elif randomChoice == 3:
         tw(f"{ITALIC}The CB radio crackles again.")
-        time.sleep(0.6)
+        time.sleep(1.8)
         tw(f"{GREEN}Dispatcher: Unit 47, be advised—theres a weigh station ahead at mile 205.")
-        time.sleep(1)
+        time.sleep(2)
         tw(f"{BLUE}You: Copy. I'm legal, but it'll cost me twenty minutes.")
-        time.sleep(1)
+        time.sleep(1.7)
         tw(f"{GREEN}Dispatcher: Copy.{RESET}")
-        time.sleep(0.5)
-    
+        time.sleep(1.2)
+    elif randomChoice == 4:
+        tw(f"{ITALIC}The CB radio turns on.")
+        time.sleep(1.5)
+        tw(f"{YELLOW}Some random trucker: Unit 47, you there?.")
+        time.sleep(1.8)
+        tw(f"{BLUE}You: Yep.")
+        time.sleep(1)
+        tw(f"{YELLOW}Some random trucker: Ever think about switching loads? Maybe something lighter on the conscience?.")
+        time.sleep(1.9)
+        tw(f"{BLUE}You: Every day, buddy. But someone's gotta do it. People still love their books.")
+        time.sleep(1.7)
+        tw(f"{YELLOW}Some random trucker: Fair enough. Stay safe out there.")
+        time.sleep(1)
+        tw(f"{BLUE}You: You too.{RESET}")
+        time.sleep(1.3)
+
     scary = { #before displaying question, this happens to transition between dialogue and questions to show a book roober
         'You glance in the rearview mirror, a book roober appears!': 1,
-        'A loud bang is heard in your truck, you realize there is a book roober behind you!': 2,
+        'A loud bang is heard in by your truck, you realize there is a book roober behind you!': 2,
         'As you look back to change lanes, you realize a book roober is beside your truck!': 3,
         'GEE  WILIKERS !!!! There is a book roober behind you!': 4,
         'You adjust your mirror, but something is wrong...\nThere is a book roober behind your truck!': 5,
-
     }
     random_pair = random.choice(list(scary.items())) #chooses random dialogue option from list
     key, value = random_pair
@@ -235,7 +253,7 @@ def multi():
         dialogue()
         questionss()
         tw(f"\n{BOLD}Current cargo: {cargo}")
-        tw(f"Current score {score}{RESET}")
+        tw(f"Current score: {score}{RESET}")
 
         # 15% chance of double or nothing special question
         if random.random() < 0.15:
@@ -265,6 +283,8 @@ def multi():
             continue #if yes program continues
         elif play_again == 'n':
             tw(f"\n{BLUE}Game Over! Final cargo: {cargo}.\nFinal score: {score}. {RESET}")
+            time.sleep(0.8)
+            tw(f"If you have the time next time you should try to finish the game, it's only 10 questions!")
             exit() #ends program
         else:
             tw(f"{RED}Invalid input. Try again{RESET}")
@@ -274,19 +294,19 @@ def shortquestions():
     questionsss = [ #dictionary for questions
        {
             "question": "Where are books made?",
-            "answers": ["Printer", "Book factory", "Factory", "printing process"],
+            "answers": ["Printer", "Book factory", "Factory", "printing process", "book printer"],
         },
         {
             "question": "What is one material used to make books?",
             "answers": ["Glue", "Threading", "Thread", "Paper", "Ink"],
         },
         {
-            "question": "What is the first step to make a book?",
-            "answers": ["Gather materials", "Gathering materials", "Material gathering", ],
+            "question": "What is the first PHYSICAL step to make a paper book?",
+            "answers": ["Gather materials", "Gathering materials", "Material gathering", "Getting paper", "paper", "getting the materials", "getting mateerials"],
         },
         {
             "question": "What is the primary raw material used in making paper for books?",
-            "answers": ["Wood pulp",],
+            "answers": ["Wood pulp" "pulp", "paper", "paper production"],
         },
         {
             "question": "Which process is commonly used to bind the pages of a book together?",
@@ -294,11 +314,11 @@ def shortquestions():
         },
         {
             "question": "What environmental concern is associated with traditional paper production?",
-            "answers": ["Air pollution", "Water consumption", "Deforestation"],
+            "answers": ["Air pollution", "Water consumption", "Deforestation", "pollution", "CO2 emmissions", "emmissions", "Co2", "Co2 pollution"],
         },
         {
-            "question": "Which of the following is a sustainable alternative for book production?",
-            "answers": ["Using recycled paper", "Recycling", "recycle"],
+            "question": "What is a sustainable alternative for book production?",
+            "answers": ["Using recycled paper", "Recycling", "recycle", "Choosing eco-friendly materials", "Recycle", "recycling", "share books", "donate", "sharing books"],
         },
         {
             "question": "What is the role of ink in book production?",
@@ -306,11 +326,11 @@ def shortquestions():
         },
         {
             "question": "Which stage of a paper book's life cycle typically uses the most water?",
-            "answers": ["Pulp and paper production"],
+            "answers": ["Pulp and paper production", "make paper", "printing paper", "paper production", "make paper"],
         },
         {
             "question": "What is one way to reduce the environmental impact of book production?",
-            "answers": ["Choosing eco-friendly materials", "Recycle", "recycling", "share books", "donate"],
+            "answers": ["Choosing eco-friendly materials", "Recycle", "recycling", "share books", "donate", "to donate", "choosing sustainable materials"],
         },
     ]
     question = random.choice(questionsss)# chooses random question from the dictonary using rnadom functio 
@@ -322,10 +342,12 @@ def shortquestions():
     else:
         print(f"{RED}Incorrect! The correct answers were either one of these: {question['answers']}{RESET}.")
         removed = cargo.pop(random.randint(0,len(cargo)-1))
-        print(f"{RED_BG}Oh no! A robber stole a {removed} box from your truck!{RESET}")
+        print(f"{RED_BG}Oh no! A roober stole a {removed} box from your truck!{RESET}")
             
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
             tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
+            time.sleep(0.8)
+            tw(f"If you have the time next time you should try to finish the game, it's only 10 questions!")
             exit()
 
 def double_short():
@@ -340,15 +362,15 @@ def double_short():
     double_shortt = [ #double or nothing question dictionary for short answers
         {
             "question": "Which stage of the book lifecycle contributes MOST to deforestation?",
-            "answers": ["Production", "producing", "printing"],
+            "answers": ["Production", "producing", "printing", "producing books", "printing books", "book printing", "book producing"],
         },
         {
             "question": "Which chemical process is commonly used to break down wood chips into pulp for papermaking?",
             "answers": ["Kraft process", "Krafting", "crafting", "craft process"],
         },
         {
-            "question": "What percentage of the original wood mass is typically lost during the chemical pulping process due to lignin removal? (Enter your answer as a percentage (%))",
-            "answers": ["50-60%", "45%", "60%", "45-60%", "50%", "55%"],
+            "question": "What percentage of the original wood mass is typically lost during the chemical pulping process due to lignin removal? (Enter your answer as a percentage (%) with the percent at the end)",
+            "answers": ["50-60%", "45%", "60%", "45-60%", "50%", "55%", "65%"],
         },
         {
             "question": "What should you do after finishing reading a book?",
@@ -356,19 +378,19 @@ def double_short():
         },
         {
             "question": "What gas is released when trees are cut down for paper?",
-            "answers": ["Carbon dioxide", "CO2", "greenhouse gases", "GHG"],
+            "answers": ["Carbon dioxide", "CO2", "greenhouse gases", "GHG", "GHGs", "green house gases"],
         },
         {
             "question": "What type of pollution results from transporting books?",
-            "answers": ["Greenhouse gases", "Green house gases", "GHGs"],
+            "answers": ["Greenhouse gases", "Green house gases", "GHGs", "CO2", "Carbon dioxide", "gas", "air", "air pollution"],
         },
         {
             "question": "What process gives old books life?",
-            "answers": ["Recycling", "recycle", "book bank", "donating", "donations"],
+            "answers": ["Recycling", "recycle", "book bank", "donating", "donations", "donating to a book bank", "donation"],
         },
         {
             "question": "Where do unwanted books often end?",
-            "answers": ["Landfills", "dump", "garbage dump", "trash", "garbage"],
+            "answers": ["Landfills", "dump", "garbage dump", "trash", "garbage", "bin", "garbage bin", "trash bin"],
         },
         ]
     question = random.choice(double_shortt)
@@ -389,11 +411,10 @@ def short():
     for i in range(10): #main game loop with 10 questions
         dialogue()
         shortquestions()
-        tw(f"{BOLD}Current cargo {cargo}")
+        tw(f"{BOLD}Current cargo: {cargo}")
         tw(f"Current score: {score}{RESET}")
         
-        # 15% chance of double or nothing
-        if random.random() < 0.15:
+        if random.random() < 0.15:  # 15% chance of double or nothing
             dialogue()
             tw("\nA special challenge has appeared!")
             time.sleep(0.5)
@@ -407,6 +428,8 @@ def short():
             continue #if yes program continues
         elif play_again == 'n':
             tw(f"\n{BLUE}Game Over! Final cargo: {cargo}.\nFinal score: {score}. {RESET}")
+            time.sleep(0.8)
+            tw(f"If you have the time next time you should try to finish the game, it's only 10 questions!")
             exit() #ends program
         else:
             tw(f"{RED}Invalid input. Try again{RESET}")
