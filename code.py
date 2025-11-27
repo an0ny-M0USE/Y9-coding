@@ -169,9 +169,9 @@ def questionss():
     if user_answer == question["correct"]:
         tw(f"{GREEN}Correct!! {RESET}")
     else:
-        print(f"{RED}Incorrect! The correct answer was {question['correct']}{RESET}.")
+        tw(f"{RED}Incorrect! The correct answer was {question['correct']}{RESET}."); time.sleep(0.5) #I want to show that you can put time.sleep on the same line as somethign else with a semicolon
         removed = cargo.pop(random.randint(0,len(cargo)-1))
-        print(f"{RED_BG}A robber stole a {removed} box!{RESET}")
+        tw(f"{RED_BG}A book roober stole a {removed} box!{RESET}")
               
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
             tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
@@ -264,7 +264,7 @@ def multi():
             if score < 0:
                 tw(f"{RED}You have negative points!")
                 tw(f"Your final score was {score}.")
-                tw(f"(Your final cargo was: {cargo}.)")
+                tw(f"Your final cargo was: {cargo}.")
                 exit()
 
             elif len(cargo) == 0:
@@ -406,7 +406,7 @@ def short():
     global score
     score = 0
     for i in range(10): #main game loop with 10 questions
-        dialogue()
+        time.sleep(0.8); dialogue()
         shortquestions()
         tw(f"{BOLD}Current cargo: {cargo}")
         tw(f"Current score: {score}{RESET}")
