@@ -15,10 +15,8 @@ RED_BG = '\033[41m'
 BLUE_BG = '\033[44m'
 RED_BG = '\033[41m'
 
-def tw(text): #typewriter effect defined
-    for character in text:
-        print(character, end='', flush=True)
-        time.sleep(0.017) #speed of typewriting
+def tw(text): 
+    for character in text: print(character,end='',flush=True); time.sleep(0.017)
     print()
 
 def dialogue():
@@ -38,7 +36,7 @@ def dialogue():
             'The mile marker climbs up: 220. 230. 240.': 13,
             'The sun climbs higher. The road continues.': 14,
         }
-    random_pair = random.choice(list(dialoguee.items())) #chooses random dialogue option from list
+    random_pair = random.choice(dialoguee) #chooses random dialogue option from list
     key, value = random_pair #the key is the writing part and the value is the number, this is so that it doesn't print entire dictionary line
     tw(f"{ITALIC}{key}{RESET}")
     time.sleep(1)
@@ -145,8 +143,7 @@ def questionss():
             "options": ["Tree harvesting", "Pulp and paper production", "Printing and binding", "Recycling"],
             "correct": "B"
         },
-        {
-            "question": "What is one way to reduce the environmental impact of book production?",
+            {"question": "What is one way to reduce the environmental impact of book production?",
             "options": ["Using more plastic", "Increasing paper thickness", "Choosing eco-friendly materials", "Printing more copies"],
             "correct": "C"
         },
