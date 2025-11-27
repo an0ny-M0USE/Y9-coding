@@ -33,7 +33,7 @@ def dialogue():
 
         }
     random_pair = random.choice(list(dialoguee.items())) #chooses random dialogue option from list
-    key, value = random_pair
+    key, value = random_pair #the key is the writing part and the value is the number, this is so that it doesn't print entire dictionary line
     tw(f"{ITALIC}{key}{RESET}")
     time.sleep(1)
 
@@ -66,7 +66,7 @@ def dialogue():
         tw(f"{GREEN}Dispatcher: Copy.{RESET}")
         time.sleep(0.5)
     
-    scary = { #before displaying question, this happens to transition between dialogue and questions
+    scary = { #before displaying question, this happens to transition between dialogue and questions to show a book roober
         'You glance in the rearview mirror, a book roober appears!': 1,
         'A loud bang is heard in your truck, you realize there is a book roober behind you!': 2,
         'As you look back to change lanes, you realize a book roober is beside your truck!': 3,
@@ -134,7 +134,6 @@ def questionss():
         },
     
     ]
-    
     # chooses random question
     question = random.choice(questions)
     tw(f"{BLUE_BG}\n{question['question']}{RESET}")
@@ -148,9 +147,6 @@ def questionss():
     time.sleep(0.06)
     print("D.", question["options"][3])
     time.sleep(0.06)
-
-    
-    # answer prompt
     tw(f"\n{UNDERLINE}Please enter your answer (A/B/C/D): {RESET}") #typewriter prompt (not actual input but just for visuals)
     user_answer = input().upper() #actual input for user
     
@@ -167,13 +163,13 @@ def questionss():
             exit()
               
 def double_multi():
-    for i in range(4):
+    for i in range(4): #repeats double or nothing challenge is blue and red and bolded 4 times
         print(f"\n{BOLD}{BLUE_BG}DOUBLE OR NOTHING CHALLENGE!{RESET}") 
         time.sleep(0.6)
         print(f"\n{BOLD}{RED_BG}DOUBLE OR NOTHING CHALLENGE!{RESET}",) 
         time.sleep(0.6)
 
-    tw("Youi loose -2000 points if you get it wrong")
+    tw("You loose -2000 points if you get it wrong")
     tw("But get +2000 points if you get it right :)")
     
     double_multii = [ #double or nothing question dictionary
@@ -208,7 +204,6 @@ def double_multi():
             "correct": "B"
         },
     ]
-    
     question = random.choice(double_multii) #random question from dictionary
     tw(f"{BLUE_BG}\n{question['question']}{RESET}")
     
@@ -242,8 +237,6 @@ def multi():
         tw(f"\n{BOLD}Current cargo: {cargo}")
         tw(f"Current score {score}{RESET}")
 
-        print(*cargo, sep=", ")      
-
         # 15% chance of double or nothing special question
         if random.random() < 0.15:
             dialogue()
@@ -264,7 +257,7 @@ def multi():
                 exit()
             
             else:
-                continue
+                continue #if none of the stuff above happened, the program just continues
 
         tw(f"{UNDERLINE}\nPlay another question? (y/n): {RESET}")
         play_again = input("").lower()
@@ -320,8 +313,7 @@ def shortquestions():
             "answers": ["Choosing eco-friendly materials", "Recycle", "recycling", "share books", "donate"],
         },
     ]
-    # chooses random question
-    question = random.choice(questionsss)
+    question = random.choice(questionsss)# chooses random question from the dictonary using rnadom functio 
     tw(f"{UNDERLINE}\n" + question["question"] + f"{RESET}") #shows question from dictionary, tw is to call typewriter effect for this line
     user_answer = input("").lower().strip() #.strip() makes it so that even if there is a space in the user's answer the program removes it
 
@@ -379,7 +371,6 @@ def double_short():
             "answers": ["Landfills", "dump", "garbage dump", "trash", "garbage"],
         },
         ]
-
     question = random.choice(double_shortt)
     tw(f"{UNDERLINE}\n" + question["question"] + f"{RESET}") #shows question from dictionary, tw is to call typewriter effect for this line
     user_answer = input("").lower().strip() #.strip() makes it so that even if there is a space in the user's answer the program removes it
@@ -486,7 +477,7 @@ def menu():
             tutorial = f"""\n📚 BookTruck - How to Play
 
 {BOLD}Your Mission:{RESET}
-You're a truck driver transporting precious book production materials to their destination. Your cargo includes threading, ink, paper, and glue—everything needed to make books!
+You're a truck driver transporting precious book production materials to their destination. Your cargo includes threading, ink, paper, and glue—everything needed to make books! But be careful. There are book roobers trying to steal your precious cargo.
 
 {BOLD}The Goal:{RESET}
 Answer 10 questions about the book life cycle and environmental impacts correctly to reach your destination and win the game.
@@ -516,8 +507,7 @@ Successfully answer all 10 questions while keeping your score positive and at le
 
 Good luck, driver! 🚚📖
 
-"""
-            
+"""       
             tw(tutorial)
             time.sleep(1)
 
@@ -543,9 +533,6 @@ logo = """
 /____/\___/\___/_/\_\/_/ /_/  \_,_/\__/_/\_\ 
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMW0dolllllllllllllllllllllllllllllllllllllllllloxKWMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMNo. .''''''''''''''''''''''''''''''''''''''''''. 'kMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMWNNNNNk. ;OKKKKKKKKKKXNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNd. oWMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -569,11 +556,6 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMWx. .cddo:. 'kWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXc..;oddl
 MMMMMMMMMMMMMMMMMMMMMMMMMMMWKo;....,cxXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNOc,...';o0WMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNXXXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWXXXNWMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-
 """
 time.sleep(0.8)
 menu() #runs menu function to start program
