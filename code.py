@@ -53,7 +53,7 @@ def dialogue():
         time.sleep(0.5)
         tw("You calculate the emissions in your head:")
         time.sleep(0.7)
-        tw(f"Roughly 6 kilometers per gallon, 300 kilometers to go.{RESET}")
+        tw(f"'Roughly 6 kilometers per gallon, 300 kilometers to go.'{RESET}")
         time.sleep(1)
 
     elif randomChoice == 3:
@@ -69,8 +69,9 @@ def dialogue():
     scary = { #before displaying question, this happens to transition between dialogue and questions
         'You glance in the rearview mirror, a book roober appears!': 1,
         'A loud bang is heard in your truck, you realize there is a book roober behind you!': 2,
-        'A book roober is beside your truck!': 3,
-        'There is a book roober behind you!': 4,
+        'As you look back to change lanes, you realize a book roober is beside your truck!': 3,
+        'GEE  WILIKERS !!!! There is a book roober behind you!': 4,
+        'You adjust your mirror, but something is wrong.\nThere is a book roober behind your truck!': 5,
 
     }
     random_pair = random.choice(list(scary.items())) #chooses random dialogue option from list
@@ -454,24 +455,28 @@ def menu():
                 choice2 = input("")
                 if choice2 == '1':
                     tw("You chose mulitple choice difficulty!")
-                    time.sleep(0.5)
+                    time.sleep(2)
+                    print("\n" * 38)
+                    time.sleep(1.3)
                     tw(f"{ITALIC}\nYou enter your truck, ready to start your long day ahead.")
-                    time.sleep(0.5)
+                    time.sleep(1.5)
                     tw(f"You merge onto the road.")
-                    time.sleep(1.3)
+                    time.sleep(2.3)
                     tw(f"Time passes by.{RESET}")
-                    time.sleep(1.3)
+                    time.sleep(2.3)
                     multi() #starts multiple function
                 
                 elif choice2 == '2':
                     tw("You chose short answer difficulty!")
-                    time.sleep(0.5)
+                    time.sleep(2)
+                    print("\n" * 38)
+                    time.sleep(1.3)
                     tw(f"{ITALIC}\nYou enter your truck, ready to start your long day ahead.")
-                    time.sleep(0.5)
+                    time.sleep(1.5)
                     tw(f"You merge onto the road.")
-                    time.sleep(1.3)
+                    time.sleep(2.3)
                     tw(f"Time passes by.{RESET}")
-                    time.sleep(1.3)
+                    time.sleep(2.3)
                     short()
 
                 else:
