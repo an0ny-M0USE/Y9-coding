@@ -188,7 +188,7 @@ def double_multi():
         time.sleep(0.6)
 
     tw("You loose -2000 points if you get it wrong")
-    tw("But get +2000 points if you get it right :)")
+    tw("But get +2000 points if you get it right :D")
     
     double_multii = [ #double or nothing question dictionary
         {
@@ -463,7 +463,6 @@ def menu():
         tw(f"{UNDERLINE}Please enter your choice (1/2/3):{RESET}")
         choice = input("")
         if choice == '1':
-            
             while True: #same logic as the first while True, if the user gives invalid choice it loops back to this question
                 tw(f"\nWhich difficulty would you like to play on?\n1. Multiple Choice (easy) \n2. Short Answer (hard)\n{UNDERLINE}Enter here (1/2):{RESET}")
                 choice2 = input("")
@@ -529,11 +528,9 @@ Successfully answer all 10 questions while keeping your score positive and at le
 - Consider environmental factors like recycling, transportation, and resource use
 
 Good luck, driver! 🚚📖
-
-"""       
+"""
             tw(tutorial)
             time.sleep(1)
-
             menu()
         elif choice == '3':
             tw("Thank you for playing BookTruck! Goodbye!")
