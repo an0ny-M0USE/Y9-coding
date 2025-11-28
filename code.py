@@ -1,4 +1,5 @@
-import random, time #imports random and time
+import random
+import time #imports random and time, this is useful so I can add pauses in text and choose random questions
 
 cargo = ["thread", "paper", "ink"]
 
