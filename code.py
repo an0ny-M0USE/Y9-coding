@@ -1,6 +1,6 @@
 import random, time #imports random and time
 
-cargo = ["ink", "thread", "paper", "paper", "glue"]
+cargo = ["thread", "paper", "ink"]
 
 #these are easy ways to add colour and different styles to the text displayed so when I add something like f("{BLUE}hello")" it will change the colour to blue in a printout
 UNDERLINE = '\033[4m' 
@@ -41,47 +41,39 @@ def dialogue():
     tw(f"{ITALIC}{key}{RESET}")
     time.sleep(1)
 
-    randomChoice = random.randint(1,4) #after random dialogue it chooses random dialogue with pauses in text
+    randomChoice = random.randint(1,5) #after random dialogue it chooses random dialogue with pauses in text
     if randomChoice == 1:
-        tw(f"{ITALIC}The CB radio crackles to life:")
-        time.sleep(1)
-        tw(f"{GREEN}Dispatcher: Unit 47, whats your 20?")
-        time.sleep(1.5)
-        tw(f"{BLUE}You: Just passed mile marker 182 on I-90. Should hit the warehouse by 1400 hours.")
-        time.sleep(1.8)
-        tw(f"{GREEN}Dispatcher: Copy.{RESET}")
-        time.sleep(0.7)
+        tw(f"{ITALIC}The CB radio crackles to life:"); time.sleep(1) #another way to add time.sleep
+        tw(f"{GREEN}Dispatcher: Unit 47, whats your 20?"); time.sleep(1.5)
+        tw(f"{BLUE}You: Just passed mile marker 182 on I-90. Should hit the warehouse by 1400 hours."); time.sleep(1.8)
+        tw(f"{GREEN}Dispatcher: Copy.{RESET}");time.sleep(0.7)
     elif randomChoice == 2:
-        tw(f"{ITALIC}You glance at your fuel gauge—half a tank.")
-        time.sleep(1)
-        tw("You calculate the emissions in your head:")
-        time.sleep(1.8)
-        tw(f"'Roughly 6 kilometers per gallon, 300 kilometers to go.'{RESET}")
-        time.sleep(1.4)
+        tw(f"{ITALIC}You glance at your fuel gauge—half a tank."); time.sleep(1)
+        tw("You calculate the emissions in your head:"); time.sleep(1.8)
+        tw(f"'Roughly 6 kilometers per gallon, 300 kilometers to go.'{RESET}"); time.sleep(1.4)
     elif randomChoice == 3:
-        tw(f"{ITALIC}The CB radio crackles again.")
-        time.sleep(1.8)
-        tw(f"{GREEN}Dispatcher: Unit 47, be advised—theres a weigh station ahead at mile 205.")
-        time.sleep(2)
-        tw(f"{BLUE}You: Copy. I'm legal, but it'll cost me twenty minutes.")
-        time.sleep(1.7)
-        tw(f"{GREEN}Dispatcher: Copy.{RESET}")
-        time.sleep(1.2)
+        tw(f"{ITALIC}The CB radio crackles again.");time.sleep(1.8)
+        tw(f"{GREEN}Dispatcher: Unit 47, be advised—theres a weigh station ahead at mile 205."); time.sleep(2)
+        tw(f"{BLUE}You: Copy. I'm legal, but it'll cost me twenty minutes."); time.sleep(1.7)
+        tw(f"{GREEN}Dispatcher: Copy.{RESET}"); time.sleep(1.2)
     elif randomChoice == 4:
-        tw(f"{ITALIC}The CB radio turns on.")
-        time.sleep(1.5)
-        tw(f"{YELLOW}Some random trucker: Unit 47, you there?.")
-        time.sleep(1.8)
-        tw(f"{BLUE}You: Yep.")
-        time.sleep(1)
-        tw(f"{YELLOW}Some random trucker: Ever think about switching loads? Maybe something lighter on the conscience?.")
-        time.sleep(1.9)
-        tw(f"{BLUE}You: Every day, buddy. But someone's gotta do it. People still love their books.")
-        time.sleep(1.7)
-        tw(f"{YELLOW}Some random trucker: Fair enough. Stay safe out there.")
-        time.sleep(1)
-        tw(f"{BLUE}You: You too.{RESET}")
-        time.sleep(1.3)
+        tw(f"{ITALIC}The CB radio turns on."); time.sleep(1.5)
+        tw(f"{YELLOW}Some random trucker: Unit 47, you there?."); time.sleep(1.8)
+        tw(f"{BLUE}You: Yep."); time.sleep(1)
+        tw(f"{YELLOW}Some random trucker: Ever think about switching loads? Maybe something lighter on the conscience?."); time.sleep(1.9)
+        tw(f"{BLUE}You: Every day, buddy. But someone's gotta do it. People still love their books."); time.sleep(1.7)
+        tw(f"{YELLOW}Some random trucker: Fair enough. Stay safe out there."); time.sleep(1)
+        tw(f"{BLUE}You: You too.{RESET}"); time.sleep(1.3)
+    elif randomChoice == 5:
+        tw(f"{ITALIC}The CB radio crackles."); time.sleep(1.5)
+        tw(f"{YELLOW}Some other random trucker: Unit 47, how many loads you have today?"); time.sleep(1.8)
+        tw(f"{BLUE}You: Unit 11, second one. You?"); time.sleep(1)
+        tw(f"{YELLOW}Some other random trucker: Third. All paper products."); time.sleep(1.9)
+        tw(f"{BLUE}You: Ever wonder where it all goes?"); time.sleep(1.7)
+        tw(f"{YELLOW}Some other random trucker: I think landfills, mostly."); time.sleep(1)
+        tw(f"{BLUE}You: Yeah probably."); time.sleep(1.3)
+        tw(f"{YELLOW}Some other random trucker: But we get paid either way."); time.sleep(1)
+        tw(f"{RESET}{ITALIC}*Static.{RESET}"); time.sleep(1)
 
     scary = { #before displaying question, this happens to transition between dialogue and questions to show a book roober
         'You glance in the rearview mirror, a book roober appears!': 1,
@@ -147,7 +139,6 @@ def questionss():
             "options": ["Using more plastic", "Increasing paper thickness", "Choosing eco-friendly materials", "Printing more copies"],
             "correct": "C"
         },
-    
     ]
     # chooses random question
     question = random.choice(questions)
