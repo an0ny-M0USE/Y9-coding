@@ -22,7 +22,7 @@ def tw(text):
 def dialogue():
     dialoguee = { #dialogue options
             'You continue driving down the road.': 1,
-            'A bright blue car passes you going  the opposite direction.': 2,
+            'A bright blue car passes you going the opposite direction.': 2,
             'You merge onto the highway, passing a sign, "Next rest stop is in 5 kilometres".': 3,
             'You adjust your mirror and notice storm clouds gathering ahead.': 4,
             'You pass a recycling plant, mountains of cardboard and paper visible through the fence.': 5,
@@ -87,7 +87,7 @@ def dialogue():
         'You glance in the rearview mirror, a book roober appears!': 1,
         'A loud bang is heard in by your truck, you realize there is a book roober behind you!': 2,
         'As you look back to change lanes, you realize a book roober is beside your truck!': 3,
-        'GEE  WILIKERS !!!! There is a book roober behind you!': 4,
+        'GEE WILIKERS !!!! There is a book roober behind you!': 4,
         'You adjust your mirror, but something is wrong...\nThere is a book roober behind your truck!': 5,
     }
     random_pair = random.choice(list(scary.items())) #chooses random dialogue option from list
@@ -245,15 +245,15 @@ def double_multi():
 def multi():
     global score #i'm adding global to this so that in the menu() function there won't be an error when called on in the menu() function
     score = 0
-    for i in range (10): #main game loop
+    for i in range (5): #main game loop
         #normal question
         dialogue()
         questionss()
         tw(f"\n{BOLD}Current cargo: {cargo}")
         tw(f"Current score: {score}{RESET}")
 
-        # 15% chance of double or nothing special question
-        if random.random() < 0.15:
+        # 25% chance of double or nothing special question
+        if random.random() < 0.25:
             dialogue()
             tw("\nA special challenge has appeared!")
             time.sleep(0.5)
@@ -405,13 +405,13 @@ def double_short():
 def short():
     global score
     score = 0
-    for i in range(10): #main game loop with 10 questions
+    for i in range(5): #main game loop with 10 questions
         time.sleep(0.8); dialogue()
         shortquestions()
         tw(f"{BOLD}Current cargo: {cargo}")
         tw(f"Current score: {score}{RESET}")
         
-        if random.random() < 0.15:  # 15% chance of double or nothing
+        if random.random() < 0.25:  # 25% chance of double or nothing
             dialogue()
             tw("\nA special challenge has appeared!")
             time.sleep(0.5)
@@ -565,7 +565,7 @@ Good luck, driver! 🚚📖
             tw("Thank you for playing BookTruck! Goodbye!")
             exit()
 
-        #secret option to immediently access multiple choice or short answer questions if the user wants to skip to either question
+        #secret option to immediently acess multiple choice or short answer questions if the user wants to skip to either question
         elif choice == '4': 
             multi()
         elif choice == '5':
