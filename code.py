@@ -11,7 +11,7 @@ Red = '\033[31m'
 Blue = '\033[34m'
 Green = '\033[32m'
 Yellow = '\033[33m'
-RED_BG = '\033[41m'
+RED_BG = '\033[41m' #background colour is red, same logic applies for the other BGs
 BLUE_BG = '\033[44m'
 RED_BG = '\033[41m'
 
