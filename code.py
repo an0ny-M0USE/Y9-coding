@@ -272,7 +272,7 @@ def multi():
             exit() #ends program
         else:
             tw(f"{Red}Invalid input. Try again{Reset}")
-    end() #after 10 repeats, it goes to end function
+    end() #after 5 repeats, it goes to end function
 
 def shortquestions():
     questionsss = [ #dictionary for questions
@@ -389,7 +389,7 @@ def double_short():
 def short():
     global score
     score = 0
-    for i in range(5): #main game loop with 10 questions
+    for i in range(5): #main game loop with 5 questions
         time.sleep(0.8); dialogue(); time.sleep(0.5)
         shortquestions()
         tw(f"{Bold}Current cargo: {cargo}")
