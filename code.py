@@ -3,14 +3,14 @@ import random, time #imports random and time
 cargo = ["thread", "paper", "ink"]
 
 #these are easy ways to add colour and different styles to the text displayed so when I add something like f("{BLUE}hello")" it will change the colour to blue in a printout
-UNDERLINE = '\033[4m' 
-BOLD = '\033[1m'
-ITALIC = '\x1B[3m'
-RESET = '\033[0m' #resets text to normal
-RED = '\033[31m'
-BLUE = '\033[34m'
-GREEN = '\033[32m'
-YELLOW = '\033[33m'
+Underline = '\033[4m' 
+Bold = '\033[1m'
+Italic = '\x1B[3m'
+Reset = '\033[0m' #resets text to normal
+Red = '\033[31m'
+Blue = '\033[34m'
+Green = '\033[32m'
+Yellow = '\033[33m'
 RED_BG = '\033[41m'
 BLUE_BG = '\033[44m'
 RED_BG = '\033[41m'
@@ -38,42 +38,42 @@ def dialogue():
         }
     random_pair = random.choice(list(dialoguee.items())) #chooses random dialogue option from list
     key, value = random_pair #the key is the writing part and the value is the number, this is so that it doesn't print entire dictionary line
-    tw(f"{ITALIC}{key}{RESET}")
+    tw(f"{Italic}{key}{Reset}")
     time.sleep(1)
 
     randomChoice = random.randint(1,5) #after random dialogue it chooses random dialogue with pauses in text
     if randomChoice == 1:
-        tw(f"{ITALIC}The CB radio crackles to life:"); time.sleep(1) #another way to add time.sleep
-        tw(f"{GREEN}Dispatcher: Unit 47, whats your 20?"); time.sleep(1.5)
-        tw(f"{BLUE}You: Just passed mile marker 182 on I-90. Should hit the warehouse by 1400 hours."); time.sleep(1.8)
-        tw(f"{GREEN}Dispatcher: Copy.{RESET}");time.sleep(0.7)
+        tw(f"{Italic}The CB radio crackles to life:"); time.sleep(1) #another way to add time.sleep
+        tw(f"{Green}Dispatcher: Unit 47, whats your 20?"); time.sleep(1.5)
+        tw(f"{Blue}You: Just passed mile marker 182 on I-90. Should hit the warehouse by 1400 hours."); time.sleep(1.8)
+        tw(f"{Green}Dispatcher: Copy.{Reset}");time.sleep(0.7)
     elif randomChoice == 2:
-        tw(f"{ITALIC}You glance at your fuel gauge—half a tank."); time.sleep(1)
+        tw(f"{Italic}You glance at your fuel gauge—half a tank."); time.sleep(1)
         tw("You calculate the emissions in your head:"); time.sleep(1.8)
-        tw(f"'Roughly 6 kilometers per gallon, 300 kilometers to go.'{RESET}"); time.sleep(1.4)
+        tw(f"'Roughly 6 kilometers per gallon, 300 kilometers to go.'{Reset}"); time.sleep(1.4)
     elif randomChoice == 3:
-        tw(f"{ITALIC}The CB radio crackles again.");time.sleep(1.8)
-        tw(f"{GREEN}Dispatcher: Unit 47, be advised—theres a weigh station ahead at mile 205."); time.sleep(2)
-        tw(f"{BLUE}You: Copy. I'm legal, but it'll cost me twenty minutes."); time.sleep(1.7)
-        tw(f"{GREEN}Dispatcher: Copy.{RESET}"); time.sleep(1.2)
+        tw(f"{Italic}The CB radio crackles again.");time.sleep(1.8)
+        tw(f"{Green}Dispatcher: Unit 47, be advised—theres a weigh station ahead at mile 205."); time.sleep(2)
+        tw(f"{Blue}You: Copy. I'm legal, but it'll cost me twenty minutes."); time.sleep(1.7)
+        tw(f"{Green}Dispatcher: Copy.{Reset}"); time.sleep(1.2)
     elif randomChoice == 4:
-        tw(f"{ITALIC}The CB radio turns on."); time.sleep(1.5)
-        tw(f"{YELLOW}Some random trucker: Unit 47, you there?."); time.sleep(1.8)
-        tw(f"{BLUE}You: Yep."); time.sleep(1)
-        tw(f"{YELLOW}Some random trucker: Ever think about switching loads? Maybe something lighter on the conscience?."); time.sleep(1.9)
-        tw(f"{BLUE}You: Every day, buddy. But someone's gotta do it. People still love their books."); time.sleep(1.7)
-        tw(f"{YELLOW}Some random trucker: Fair enough. Stay safe out there."); time.sleep(1)
-        tw(f"{BLUE}You: You too.{RESET}"); time.sleep(1.3)
+        tw(f"{Italic}The CB radio turns on."); time.sleep(1.5)
+        tw(f"{Yellow}Some random trucker: Unit 47, you there?."); time.sleep(1.8)
+        tw(f"{Blue}You: Yep."); time.sleep(1)
+        tw(f"{Yellow}Some random trucker: Ever think about switching loads? Maybe something lighter on the conscience?."); time.sleep(1.9)
+        tw(f"{Blue}You: Every day, buddy. But someone's gotta do it. People still love their books."); time.sleep(1.7)
+        tw(f"{Yellow}Some random trucker: Fair enough. Stay safe out there."); time.sleep(1)
+        tw(f"{Blue}You: You too.{Reset}"); time.sleep(1.3)
     elif randomChoice == 5:
-        tw(f"{ITALIC}The CB radio crackles."); time.sleep(1.5)
-        tw(f"{YELLOW}Some other random trucker: Unit 47, how many loads you have today?"); time.sleep(1.8)
-        tw(f"{BLUE}You: Unit 11, second one. You?"); time.sleep(1)
-        tw(f"{YELLOW}Some other random trucker: Third. All paper products."); time.sleep(1.9)
-        tw(f"{BLUE}You: Ever wonder where it all goes?"); time.sleep(1.7)
-        tw(f"{YELLOW}Some other random trucker: I think landfills, mostly."); time.sleep(1)
-        tw(f"{BLUE}You: Yeah probably."); time.sleep(1.3)
-        tw(f"{YELLOW}Some other random trucker: But we get paid either way."); time.sleep(1)
-        tw(f"{RESET}{ITALIC}*Static.{RESET}"); time.sleep(1)
+        tw(f"{Italic}The CB radio crackles."); time.sleep(1.5)
+        tw(f"{Yellow}Some other random trucker: Unit 47, how many loads you have today?"); time.sleep(1.8)
+        tw(f"{Blue}You: Unit 11, second one. You?"); time.sleep(1)
+        tw(f"{Yellow}Some other random trucker: Third. All paper products."); time.sleep(1.9)
+        tw(f"{Blue}You: Ever wonder where it all goes?"); time.sleep(1.7)
+        tw(f"{Yellow}Some other random trucker: I think landfills, mostly."); time.sleep(1)
+        tw(f"{Blue}You: Yeah probably."); time.sleep(1.3)
+        tw(f"{Yellow}Some other random trucker: But we get paid either way."); time.sleep(1)
+        tw(f"{Reset}{Italic}*Static.{Reset}"); time.sleep(1)
 
     scary = { #before displaying question, this happens to transition between dialogue and questions to show a book roober
         'You glance in the rearview mirror, a book roober appears!': 1,
@@ -84,8 +84,7 @@ def dialogue():
     }
     random_pair = random.choice(list(scary.items())) #chooses random dialogue option from list
     key, value = random_pair
-    tw(f"\n{ITALIC}{BOLD}{RED}{key}{RESET}")
-    time.sleep(2)
+    tw(f"\n{Italic}{Bold}{Red}{key}{Reset}"); time.sleep(2)
 
 def questionss(): 
 
@@ -142,7 +141,7 @@ def questionss():
     ]
     # chooses random question
     question = random.choice(questions)
-    tw(f"{BLUE_BG}\n{question['question']}{RESET}")
+    tw(f"{BLUE_BG}\n{question['question']}{Reset}")
     
     # displays every multple choice option from the dictionary that I used above
     print("A.", question["options"][0]) #options for corresponding question/option from dicitionary, e.g. question calls question from question dictionary
@@ -153,27 +152,25 @@ def questionss():
     time.sleep(0.06)
     print("D.", question["options"][3])
     time.sleep(0.06)
-    tw(f"\n{UNDERLINE}Please enter your answer (A/B/C/D): {RESET}") #typewriter prompt (not actual input but just for visuals)
+    tw(f"\n{Underline}Please enter your answer (A/B/C/D): {Reset}") #typewriter prompt (not actual input but just for visuals)
     user_answer = input().upper() #actual input for user
     
     # check answer
     if user_answer == question["correct"]:
-        tw(f"{GREEN}Correct!! {RESET}")
+        tw(f"{Green}Correct!! {Reset}")
     else:
-        tw(f"{RED}Incorrect! The correct answer was {question['correct']}{RESET}."); time.sleep(0.5) #I want to show that you can put time.sleep on the same line as somethign else with a semicolon
+        tw(f"{Red}Incorrect! The correct answer was {question['correct']}{Reset}."); time.sleep(0.5) #I want to show that you can put time.sleep on the same line as somethign else with a semicolon
         removed = cargo.pop(random.randint(0,len(cargo)-1))
-        tw(f"{RED_BG}A book roober stole a {removed} box!{RESET}")
+        tw(f"{RED_BG}A book roober stole a {removed} box!{Reset}")
               
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
-            tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
+            tw(f"{Red}You have lost all your cargo! Game Over!{Reset}")
             exit()
               
 def double_multi():
     for i in range(4): #repeats double or nothing challenge is blue and red and bolded 4 times
-        print(f"\n{BOLD}{BLUE_BG}DOUBLE OR NOTHING CHALLENGE!{RESET}") 
-        time.sleep(0.6)
-        print(f"\n{BOLD}{RED_BG}DOUBLE OR NOTHING CHALLENGE!{RESET}",) 
-        time.sleep(0.6)
+        print(f"\n{Bold}{BLUE_BG}DOUBLE OR NOTHING CHALLENGE!{Reset}"); time.sleep(0.6)
+        print(f"\n{Bold}{RED_BG}DOUBLE OR NOTHING CHALLENGE!{Reset}",);time.sleep(0.6)
 
     tw("You loose -2000 points if you get it wrong")
     tw("But get +2000 points if you get it right :D")
@@ -211,7 +208,7 @@ def double_multi():
         },
     ]
     question = random.choice(double_multii) #random question from dictionary
-    tw(f"{BLUE_BG}\n{question['question']}{RESET}")
+    tw(f"{BLUE_BG}\n{question['question']}{Reset}")
     
     print("A.", question["options"][0]) #display options for bonus questions
     time.sleep(0.067)
@@ -222,14 +219,14 @@ def double_multi():
     print("D.", question["options"][3])
     time.sleep(0.067)
     
-    tw(f"\n{UNDERLINE}Please enter your answer (A/B/C/D): {RESET}") #typewriter prompt (not actual input but just for visuals)
+    tw(f"\n{Underline}Please enter your answer (A/B/C/D): {Reset}") #typewriter prompt (not actual input but just for visuals)
     choice = input("").upper() #actual input for user, upper is used so that when user types answer it goes uppercase so it matches with correct from dictionary
     
     if choice == question["correct"]:
-        tw(f"{GREEN}AMAZING! You won 2000 points!{RESET}")
+        tw(f"{Green}AMAZING! You won 2000 points!{Reset}")
         return 2000 #+2000 points
     else:
-        tw(f"{RED}Wrong! The correct answer was {question['correct']}.{RESET}")
+        tw(f"{Red}Wrong! The correct answer was {question['correct']}.{Reset}")
         tw("You lost 2000 points!")
         return -2000 #-2000 points
 
@@ -240,42 +237,40 @@ def multi():
         #normal question
         dialogue()
         questionss()
-        tw(f"\n{BOLD}Current cargo: {cargo}")
-        tw(f"Current score: {score}{RESET}")
+        tw(f"\n{Bold}Current cargo: {cargo}")
+        tw(f"Current score: {score}{Reset}")
 
         # 25% chance of double or nothing special question
         if random.random() < 0.25:
             dialogue()
-            tw("\nA special challenge has appeared!")
-            time.sleep(0.5)
+            tw("\nA special challenge has appeared!"); time.sleep(0.5)
             score += double_multi() #score is score plus or minus from double or nothing
             tw(f"Cargo: {cargo}")
             tw(f"Score: {score}")
 
             if score < 0:
-                tw(f"{RED}You have negative points!")
+                tw(f"{Red}You have negative points!")
                 tw(f"Your final score was {score}.")
                 tw(f"Your final cargo was: {cargo}.")
                 exit()
 
             elif len(cargo) == 0:
-                tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
+                tw(f"{Red}You have lost all your cargo! Game Over!{Reset}")
                 exit()
             
             else:
                 continue #if none of the stuff above happened, the program just continues
 
-        tw(f"{UNDERLINE}\nPlay another question? (y/n): {RESET}")
+        tw(f"{Underline}\nPlay another question? (y/n): {Reset}")
         play_again = input("").lower()
         if play_again == 'y':
             continue #if yes program continues
         elif play_again == 'n':
-            tw(f"\n{BLUE}Game Over! Final cargo: {cargo}.\nFinal score: {score}. {RESET}")
-            time.sleep(0.8)
+            tw(f"\n{Blue}Game Over! Final cargo: {cargo}.\nFinal score: {score}. {Reset}"); time.sleep(0.8)
             tw(f"If you have the time next time you should try to finish the game, it's only 10 questions!")
             exit() #ends program
         else:
-            tw(f"{RED}Invalid input. Try again{RESET}")
+            tw(f"{Red}Invalid input. Try again{Reset}")
     end() #after 10 repeats, it goes to end function
 
 def shortquestions():
@@ -322,28 +317,25 @@ def shortquestions():
         },
     ]
     question = random.choice(questionsss)# chooses random question from the dictonary using rnadom functio 
-    tw(f"{UNDERLINE}\n" + question["question"] + f"{RESET}") #shows question from dictionary, tw is to call typewriter effect for this line
+    tw(f"{Underline}\n" + question["question"] + f"{Reset}") #shows question from dictionary, tw is to call typewriter effect for this line
     user_answer = input("").lower().strip() #.strip() makes it so that even if there is a space in the user's answer the program removes it
 
     if user_answer in [ans.lower() for ans in question['answers']]: #I used StackOverflow for this part to check if one of the answers is right from the valid answers dictionary 
-        tw(f"{GREEN}Correct!! {RESET}")
+        tw(f"{Green}Correct!! {Reset}")
     else:
-        print(f"{RED}Incorrect! The correct answers were either one of these: {question['answers']}{RESET}.")
+        print(f"{Red}Incorrect! The correct answers were either one of these: {question['answers']}{Reset}.")
         removed = cargo.pop(random.randint(0,len(cargo)-1))
-        print(f"{RED_BG}Oh no! A roober stole a {removed} box from your truck!{RESET}")
+        print(f"{RED_BG}Oh no! A roober stole a {removed} box from your truck!{Reset}")
             
         if (len(cargo)) == 0: #checks to see if user lost all of their cargo
-            tw(f"{RED}You have lost all your cargo! Game Over!{RESET}")
-            time.sleep(0.8)
+            tw(f"{Red}You have lost all your cargo! Game Over!{Reset}"); time.sleep(0.8)
             tw(f"If you have the time next time you should try to finish the game, it's only 10 questions!")
             exit()
 
 def double_short():
     for i in range(4):
-        print(f"\n{BOLD}{BLUE_BG}DOUBLE OR NOTHING CHALLENGE!{RESET}") 
-        time.sleep(0.6)
-        print(f"\n{BOLD}{RED_BG}DOUBLE OR NOTHING CHALLENGE!{RESET}",) 
-        time.sleep(0.6)
+        print(f"\n{Bold}{BLUE_BG}DOUBLE OR NOTHING CHALLENGE!{Reset}"); time.sleep(0.6)
+        print(f"\n{Bold}{RED_BG}DOUBLE OR NOTHING CHALLENGE!{Reset}"); time.sleep(0.6)
     tw("Youi loose -2000 points if you get it wrong")
     tw("But get +2000 points if you get it right :)")
 
@@ -382,14 +374,14 @@ def double_short():
         },
         ]
     question = random.choice(double_shortt)
-    tw(f"{UNDERLINE}\n" + question["question"] + f"{RESET}") #shows question from dictionary, tw is to call typewriter effect for this line
+    tw(f"{Underline}\n" + question["question"] + f"{Reset}") #shows question from dictionary, tw is to call typewriter effect for this line
     user_answer = input("").lower().strip() #.strip() makes it so that even if there is a space in the user's answer the program removes it
 
     if user_answer in [ans.lower() for ans in question['answers']]: #I used StackOverflow for this part to check if one of the answers is right from the valid answers dictionary 
-        tw(f"{GREEN}AMAZING! You won 2000 points!{RESET}")
+        tw(f"{Green}AMAZING! You won 2000 points!{Reset}")
         return 2000 #+2000 points
     else:
-        tw(f"{RED}Wrong! The correct answer was one of these options: {question['answers']}.{RESET}")
+        tw(f"{Red}Wrong! The correct answer was one of these options: {question['answers']}.{Reset}")
         tw("You lost 2000 points!")
         return -2000 #-2000 points
 
@@ -397,43 +389,38 @@ def short():
     global score
     score = 0
     for i in range(5): #main game loop with 10 questions
-        time.sleep(0.8); dialogue()
+        time.sleep(0.8); dialogue(); time.sleep(0.5)
         shortquestions()
-        tw(f"{BOLD}Current cargo: {cargo}")
-        tw(f"Current score: {score}{RESET}")
+        tw(f"{Bold}Current cargo: {cargo}")
+        tw(f"Current score: {score}{Reset}")
         
         if random.random() < 0.25:  # 25% chance of double or nothing
             dialogue()
-            tw("\nA special challenge has appeared!")
-            time.sleep(0.5)
+            tw("\nA special challenge has appeared!"); time.sleep(0.5)
             score += double_short() #score is score plus or minus from double or nothing
             tw(f"Cargo: {cargo}")
             tw(f"Score: {score}")
         
-        tw(f"{UNDERLINE}\nPlay another question? (y/n): {RESET}")
+        tw(f"{Underline}\nPlay another question? (y/n): {Reset}")
         play_again = input("").lower()
         if play_again == 'y':
             continue #if yes program continues
         elif play_again == 'n':
-            tw(f"\n{BLUE}Game Over! Final cargo: {cargo}.\nFinal score: {score}. {RESET}")
-            time.sleep(0.8)
+            tw(f"\n{Blue}Game Over! Final cargo: {cargo}.\nFinal score: {score}. {Reset}"); time.sleep(0.8)
             tw(f"If you have the time next time you should try to finish the game, it's only 10 questions!")
             exit() #ends program
         else:
-            tw(f"{RED}Invalid input. Try again{RESET}")
+            tw(f"{Red}Invalid input. Try again{Reset}")
     end()
     
 def end(): 
     global score
     time.sleep(0.5)
-    tw(f"{BOLD}{BLUE}Congratulations! You have successfully delivered your cargo of books!{RESET}")
-    time.sleep(0.5)
-    tw("You now know how about the full life cycle of a book and the enviornmental impact of it.")
-    time.sleep(0.5)
-    tw("If you tried multiple choice mode, try doing short answer mode for a harder difficulty!")
-    time.sleep(0.5)
-    tw(f"{BOLD}Your final cargo: {cargo}\n")
-    tw(f"Your final score: {score}{RESET}\n")
+    tw(f"{Bold}{Blue}Congratulations! You have successfully delivered your cargo of books!{Reset}"); time.sleep(0.5)
+    tw("You now know how about the full life cycle of a book and the enviornmental impact of it."); time.sleep(0.5)
+    tw("If you tried multiple choice mode, try doing short answer mode for a harder difficulty!"); time.sleep(0.5)
+    tw(f"{Bold}Your final cargo: {cargo}\n")
+    tw(f"Your final score: {score}{Reset}\n")
 
     tw("Would you like to play again? (y/n): ")
     end1 = input()
@@ -441,12 +428,11 @@ def end():
     if end1 == 'y':
         menu()
     else:
-        tw(f"{BLUE_BG}Thank you for playing BookTruck! Goodbye!{RESET}")
+        tw(f"{BLUE_BG}Thank you for playing BookTruck! Goodbye!{Reset}")
         exit()  
     
 def menu():
-    tw(f"{BOLD}Welcome to BookTruck!!{RESET}")
-    time.sleep(0.4)
+    tw(f"{Bold}Welcome to BookTruck!!{Reset}"); time.sleep(0.4)
     print('''
    ___            __  ______             __  
   / _ )___  ___  / /_/_  __/_____ ______/ /__
@@ -480,70 +466,61 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
           ''')
     time.sleep(0.8)
     while True: #infinite loop so that if the user gives incorrect option it loops back to the question
-        tw(f"\n{BOLD}Menu:{RESET}\n1. Begin Game\n2. Tutorial\n3. Exit")
-        tw(f"{UNDERLINE}Please enter your choice (1/2/3):{RESET}")
+        tw(f"\n{Bold}Menu:{Reset}\n1. Begin Game\n2. Tutorial\n3. Exit")
+        tw(f"{Underline}Please enter your choice (1/2/3):{Reset}")
         choice = input("")
         if choice == '1':
             while True: #same logic as the first while True, if the user gives invalid choice it loops back to this question
-                tw(f"\nWhich difficulty would you like to play on?\n1. Multiple Choice (easy) \n2. Short Answer (hard)\n{UNDERLINE}Enter here (1/2):{RESET}")
+                tw(f"\nWhich difficulty would you like to play on?\n1. Multiple Choice (easy) \n2. Short Answer (hard)\n{Underline}Enter here (1/2):{Reset}")
                 choice2 = input("")
                 if choice2 == '1':
                     tw("You chose mulitple choice difficulty!")
                     time.sleep(2)
-                    print("\n" * 38)
-                    time.sleep(1.3)
-                    tw(f"{ITALIC}\nYou enter your truck, ready to start your long day ahead.")
-                    time.sleep(1.5)
-                    tw(f"You merge onto the road.")
-                    time.sleep(2.3)
-                    tw(f"Time passes by.{RESET}")
-                    time.sleep(2.3)
+                    print("\n" * 50); time.sleep(1.3) #adds 50 lines of blank stuff
+                    tw(f"{Italic}\nYou enter your truck, ready to start your long day ahead."); time.sleep(1.5)
+                    tw(f"You merge onto the road."); time.sleep(2.3)
+                    tw(f"Time passes by.{Reset}"); time.sleep(2.3)
                     multi() #starts multiple function
                 
                 elif choice2 == '2':
-                    tw("You chose short answer difficulty!")
-                    time.sleep(2)
-                    print("\n" * 38)
-                    time.sleep(1.3)
-                    tw(f"{ITALIC}\nYou enter your truck, ready to start your long day ahead.")
-                    time.sleep(1.5)
-                    tw(f"You merge onto the road.")
-                    time.sleep(2.3)
-                    tw(f"Time passes by.{RESET}")
-                    time.sleep(2.3)
+                    tw("You chose short answer difficulty!"); time.sleep(2)
+                    print("\n" * 38); time.sleep(1.3)
+                    tw(f"{Italic}\nYou enter your truck, ready to start your long day ahead.");time.sleep(1.5)
+                    tw(f"You merge onto the road."); time.sleep(2.3)
+                    tw(f"Time passes by.{Reset}"); time.sleep(2.3)
                     short()
 
                 else:
-                    tw(f"{RED}Invalid choice. Please try again.{RESET}")
+                    tw(f"{Red}Invalid choice. Please try again.{Reset}")
             
         elif choice == '2':
-            tw(f"""\n📚 BookTruck - How to Play
+            tw(f"""\n📚 {Bold}BookTruck - How to Play{Reset}
 
-{BOLD}Your Mission:{RESET}
+{Bold}Your Mission:{Reset}
 You're a truck driver transporting precious book production materials to their destination. Your cargo includes threading, ink, paper, and glue—everything needed to make books! But be careful. There are book roobers trying to steal your precious cargo.
 
-{BOLD}The Goal:{RESET}
+{Bold}The Goal:{Reset}
 Answer 10 questions about the book life cycle and environmental impacts correctly to reach your destination and win the game.
 
-{BOLD}How to Play:{RESET}
+{Bold}How to Play:{Reset}
 - You'll face 10 questions during your journey (multiple choice or short answer based on your chosen difficulty)
 - Each question tests your knowledge about how books are made and their impact on the environment
 - Answer correctly to keep moving forward
 - Wrong answers may cost you points or cargo
 
-{BOLD}Scoring:{RESET}
+{Bold}Scoring:{Reset}
 - You start with a certain number of points
 - Correct answers earn you points
 - Incorrect answers lose you points or damage your cargo
 
-{BOLD}Losing Conditions - You lose if:{RESET}
+{Bold}Losing Conditions - You lose if:{Reset}
 1. Your score drops to zero or below (negative points)
 2. You lose all your cargo materials (threading, ink, paper, and glue)
 
-{BOLD}Winning Condition:{RESET}
+{Bold}Winning Condition:{Reset}
 Successfully answer all 10 questions while keeping your score positive and at least some cargo intact!
 
-{BOLD}Tips for Success:{RESET}
+{Bold}Tips for Success:{Reset}
 - Think carefully about each answer
 - Remember: books go through many stages from tree to reader
 - Consider environmental factors like recycling, transportation, and resource use
@@ -562,5 +539,5 @@ Good luck, driver! 🚚📖
         elif choice == '5':
             short()
         else:
-            tw(f"{RED}Invalid choice. Please try again.{RESET}")
+            tw(f"{Red}Invalid choice. Please try again.{Reset}")
 menu() #runs menu function to start program
