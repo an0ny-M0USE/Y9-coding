@@ -401,6 +401,19 @@ def short():
             score += double_short() #score is score plus or minus from double or nothing
             tw(f"Cargo: {cargo}")
             tw(f"Score: {score}")
+
+            if score < 0:
+                tw(f"{Red}You have negative points!")
+                tw(f"Your final score was {score}.")
+                tw(f"Your final cargo was: {cargo}.")
+                exit()
+
+            elif len(cargo) == 0:
+                tw(f"{Red}You have lost all your cargo! Game Over!{Reset}")
+                exit()
+            
+            else:
+                continue #if none of the stuff above happened, the program just continues
         
         tw(f"{Underline}\nPlay another question? (y/n): {Reset}")
         play_again = input("").lower()
@@ -433,6 +446,7 @@ def end():
         exit()  
     
 def menu():
+    time.sleep(1)
     tw(f"{Bold}Welcome to BookTruck!!{Reset}"); time.sleep(0.4)
     print('''
    ___            __  ______             __  
