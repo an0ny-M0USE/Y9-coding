@@ -13,10 +13,12 @@ data = {
     10: "Line ten"
 }
 
-# Convert dictionary keys to a list we can remove from
 keys_left = list(data.keys())
 
-while keys_left:
-    key = random.choice(keys_left)  # pick a random key
+for i in range(5):  # loop 5 times
+    if not keys_left:
+        break  # safety check
+
+    key = random.choice(keys_left)
     print(f"{key}: {data[key]}")
-    keys_left.remove(key)           # remove so it won't be chosen again
+    keys_left.remove(key)  # remove so it won't repeat
